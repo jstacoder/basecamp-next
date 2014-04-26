@@ -1,2 +1,5 @@
-from basecampx.endpoints import *
-from basecampx.client import Client
+from endpoints import *
+from client import Client
+
+
+

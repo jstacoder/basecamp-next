@@ -1,8 +1,8 @@
 import requests
+MY_URL_NUM = '2361076'
 
-BASE_URL = 'https://basecamp.com/2361076/api/v1/'
-
-AUTH = ('kyle@level2designs.com','14wp88')
+BASE_URL = 'https://basecamp.com/{}/api/v1/'
+MY_URL = BASE_URL.format(MY_URL_NUM)
 
 def send_request(url):
     return requests.get(url,auth=AUTH).json()
