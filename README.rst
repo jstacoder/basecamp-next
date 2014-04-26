@@ -2,31 +2,29 @@
 Python Wrapper for Basecamp Next
 ================================
 
-First, you need to ask user's permission to access her data::
+    to connect to your account
 
-    from basceampx.auth import Auth
-    auth = Auth('clientid', 'clientsecret', 'http://my_app/handle_redirect')
-    authorize_url = auth.authorize_url()
+    from basceampx import BaseCamp
+    bc = BaseCamp()
+    bc.auth = ('basecamp_id', 'basecamp_pw')
+    bc.connect() => if connected returns true
 
-Redirect the user to the ``authorize_url``. After user grants you access, get the
-access token::
+    to get your basecamp account call
+    bc.get_me()
 
-    token = auth.access_token(code)['access_token']
+    ie: me = bc.get_me()
 
-Find the accounts that this user has::
+    print me['name'] => your name
 
-    from basecampx import Client
-    client = Client(token, 'YourAppName')
-    bcx_account = client.basecamp_accounts()[0]
+    to get your todos
+    todos = bc.get_my_todos()
 
-Use a user's Basecamp Next account to access data in projects::
+    to get your messages
+    messages = bc.get_my_messages()
 
-    client = Client(token, 'YourAppName', bcx_account['id'])
+    to get your projects
+    projects = bc.get_my_projects()
 
-    from basecampx import Projects
-    project_list = Projects(client).list()
-    project_names = [project['name'] for project in project_list]
+    you see where this is going right?
 
-Get all discussions in a project::
 
-    messages = Projects(client, 12345).topics.list()

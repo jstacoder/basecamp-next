@@ -8,19 +8,18 @@ except ImportError:
 def read(fname):
     return open(os.path.join(os.path.dirname(__file__), fname)).read()
 
-required = ['requests>=1.0.0',
-            'requests-oauth2>=0.2.0']
+required = ['requests>=1.0.0']
 
 setup(
-    name='basecampx',
-    version='0.1.8',
-    author='Rimvydas Naktinis',
-    author_email='naktinis@gmail.com',
+    name='bcnxt',
+    version='0.2.0',
+    author='Kyle Roux',
+    author_email='kyle@level2designs.com',
     description=('Wrapper for Basecamp Next API.'),
-    license="MIT",
-    keywords="basecamp bcx api",
-    url='https://github.com/nous-consulting/basecamp-next',
-    packages=['basecampx'],
+    license="BSD",
+    keywords="basecamp bcx api basecamp-next",
+    url='https://github.com/jstacoder/basecamp-next',
+    packages=['bcnxt'],
     install_requires=required,
     long_description=read('README.rst'),
     include_package_data=True,
