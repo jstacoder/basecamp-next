@@ -1,3 +1,5 @@
 *.swp
 *.pyc
 env/
+auth.txt
+bcnxt/new_bc/auth.txt

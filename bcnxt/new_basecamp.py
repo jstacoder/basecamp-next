@@ -1,8 +1,33 @@
 import requests
-MY_URL_NUM = '2361076'
+from auth import get_auth
 
+MY_URL_NUM = '2361076'
+AUTH = get_auth()
 BASE_URL = 'https://basecamp.com/{}/api/v1/'
 MY_URL = BASE_URL.format(MY_URL_NUM)
+
+class BCError(Exception):
+    pass
+
+class BaseCampConnectionError(BCError):
+    pass
+
+class BaseCampConnectionAuthError(BCError):
+    pass
+
+class BaseCamp(object):
+    BASE_URL = 'https://basecamp.com/{}/api/v1/'
+    def __init__(self,url_num,user=None,pw=None):
+        self.base_url = BaseCamp.BASE_URL.format(url_num)
+        if user is not None and pw is not None:
+            self.auth = (user,pw)
+        else:
+            self.auth = ''
+
+    def connect(self):
+        if not self.auth:
+            raise BaseCampConnectionAuthError
+        
 
 def send_request(url):
     return requests.get(url,auth=AUTH).json()
@@ -12,7 +37,7 @@ def get_projects():
     return send_request(req)
 
 def get_me():
-    req = BASE_URL + 'people/me.json'
+    req = MY_URL + 'people/me.json'
     return send_request(req)
 
 def get_my_todos():
