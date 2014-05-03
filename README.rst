@@ -2,7 +2,52 @@
 Python Wrapper for Basecamp Next
 --------------------------------
 
-    =========================
+
+    ++++++++++++++++++++++++++++++++
+    api wrapper works for almost all 
+    of the new api
+    ++++++++++++++++++++++++++++++++
+
+============
+get projects
+============
+
+    projects = new_bc.projects.get_all_projects(BCACCNT)
+
+=========
+get todos
+=========
+
+    todos = new_bc.todo_lists.get_all_active_todo_lists(BCACCNT)
+
+==========
+get people
+==========
+    
+    person = new_bc.people.get_person(BCACCNT,person_id)
+
+============
+get yourself
+============
+    
+    me = new_bc.people.get_me(BCACCNT)
+
+
+
+    ++++++++++++++++++++++++++++++++
+    or to make any basecamp api call
+    ++++++++++++++++++++++++++++++++
+
+    from new_bc.core import send_request,make_api_url,get_auth
+
+    response = send_request(make_api_url(BASECAMP_ACCOUNT_NUM,API_ARGS),get_auth())
+
+
+
+
+Everything below this line is proposed
++++++++++++++++++++++++++++++++++++++++
+    ==========================
     to connect to your account
     ==========================
 
