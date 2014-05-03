@@ -7,6 +7,16 @@ Python Wrapper for Basecamp Next
     api wrapper works for almost all 
     of the new api
     ++++++++++++++++++++++++++++++++
+    
+    for these functions to work you need to have a file with your
+    basecamp user_id and password like this 
+    
+    user_id
+    password
+    
+    the file needs to be named bcnxt/new_bc/auth.txt
+    
+    this is how the functions connect to your account
 
 ============
 get projects
